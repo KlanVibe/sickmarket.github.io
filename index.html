@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>500 Cigarettes Corner</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Audio for clicks -->
+  <audio id="clickSound" src="assets/click.mp3"></audio>
+
+  <!-- Background -->
+  <img src="assets/background.jpg" class="bg">
+
+  <!-- Main content -->
+  <div class="content-scale">
+
+    <!-- Main images -->
+    <img src="assets/baze.png" class="baze">
+    <img src="assets/upflip.png" class="upbaze">
+    <img src="assets/downflip.png" class="downbaze">
+    <img src="assets/about.png" class="about">
+    <img src="assets/subinfotext.png" class="subinfo">
+    <img src="assets/info.png" class="info">
+    <img src="assets/uptext.png" class="up">
+    <img src="assets/downtext.png" class="down">
+
+    <!-- Links -->
+    <a href="https://ko-fi.com/sickklan" class="clickable-link">
+      <img src="assets/kofi.png" class="kf" alt="Kofi">
+    </a>
+    <a href="https://github.com/KlanVibe" class="clickable-link">
+      <img src="assets/github.png" class="gh" alt="GitHub">
+    </a>
+    <a href="https://www.youtube.com/channel/UCp6_42Otfas-lW5x3O6B7Vg" class="clickable-link">
+      <img src="assets/youtube.png" class="yt" alt="YouTube">
+    </a>
+
+    <!-- Misc -->
+    <img src="assets/dots.png" class="dotsl">
+    <img src="assets/dots.png" class="dotsr">
+    <img src="assets/titlebar.gif" class="ltitlebar">
+    <img src="assets/titlebar.gif" class="rtitlebar">
+    <img src="assets/bow.gif" class="bow">
+
+    <!-- Showcase -->
+    <img src="assets/pfp.png" class="pfp">
+    <img src="assets/profile.png" class="profile">
+    <img src="assets/general_pricing.png" class="general">
+    <img src="assets/mangle.gif" class="sc">
+    <img src="assets/pony.gif" class="pony">
+
+  </div> <!-- end content-scale -->
+
+  <!-- Script for clickable sound -->
+  <script>
+    const links = document.querySelectorAll('.clickable-link');
+    const clickSound = document.getElementById('clickSound');
+
+    links.forEach(link => {
+      link.addEventListener('click', function(event) {
+        clickSound.currentTime = 0;
+        clickSound.play();
+        window.open(link.href, "_blank");
+        event.preventDefault();
+      });
+    });
+ // Default maximum scroll for desktop
+  let maxScroll = 0; // desktop value
+
+  // Function to update maxScroll based on viewport
+  function updateMaxScroll() {
+    if (window.innerWidth <= 1200 || window.innerHeight <= 840) {
+      // Mobile mode
+      maxScroll = 840; // or any higher value for mobile
+    } else {
+      // Desktop mode
+      maxScroll = 0;
+    }
+  }
+
+  // Run on page load
+  updateMaxScroll();
+
+  // Run on window resize
+  window.addEventListener('resize', updateMaxScroll);
+
+  // Scroll limiter
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > maxScroll) {
+      window.scrollTo({ top: maxScroll });
+    }
+  });
+  </script>
+
+</body>
+</html>
